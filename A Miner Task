@@ -1,0 +1,18 @@
+function aMinerTask(input) {
+    let listOfResources = {};
+    for (let a = 0; a < input.length; a++) {
+        if (a % 2 === 0) {
+            if (!listOfResources.hasOwnProperty(input[a])) {
+                listOfResources[input[a]] = Number(input[a + 1]);
+            } else {
+                let sum = listOfResources[input[a]];
+                sum += Number(input[a + 1]);
+                listOfResources[input[a]] = sum;
+            }
+        }
+    }
+    let keys = Object.keys(listOfResources);
+    for (let key of keys) {
+        console.log(`${key} -> ${listOfResources[key]}`);
+    }
+}
